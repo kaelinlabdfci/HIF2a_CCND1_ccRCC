@@ -1,0 +1,4 @@
+"","id","name","item","count"
+"1","1","OSRC2 scatterplot hits RNAseq 24hr-CRISPRa","c(""WT1"", ""APOL1"")","2"
+"2","2","TUHR4TKB scatterplot hits RNAseq 24hr-CRISPRa","c(""NR4A3"", ""BHLHE40"", ""TP73"", ""CDKN2C"")","4"
+"3","1/2","OSRC2 scatterplot hits RNAseq 24hr-CRISPRa/TUHR4TKB scatterplot hits RNAseq 24hr-CRISPRa","CCND1","1"
