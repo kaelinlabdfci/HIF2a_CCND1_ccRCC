@@ -93,29 +93,29 @@ run_lm_stats_limma <- function(mat, vec, covars = NULL, weights = NULL, target_t
 ##################################################################################################################
 
 ## data import - TUHR4TKB
-barcode_gene_mapping_setA <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/CP0052_origtarget_20191021.chip", 
+barcode_gene_mapping_setA <- read.table("CRISPRa/Screen Results/CP0052_origtarget_20191021.chip", 
                                         sep = "\t", header = T)
-barcode_gene_mapping_setB <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/CP0053_origtarget_20191021.chip", 
+barcode_gene_mapping_setB <- read.table("CRISPRa/Screen Results/CP0053_origtarget_20191021.chip", 
                                         sep = "\t", header = T)
 
-plate7 <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-7/DR_GPP4421_2903468_Shirole_Plate7/lognorm-DR_GPP4421_2903468_Shirole_Plate7.txt",
+plate7 <- read.table("CRISPRa/Screen Results/Plate-7/DR_GPP4421_2903468_Shirole_Plate7/lognorm-DR_GPP4421_2903468_Shirole_Plate7.txt",
                      sep = "\t", header = T) %>% inner_join(barcode_gene_mapping_setA, 
                                                             by = c("Construct.Barcode"="Barcode.Sequence")) %>%
   select(geneSymbol = Annotated.Gene.Symbol, Construct.IDs, Rep.1.Day.0_TUHR4TKB, Rep.2.Day.0_TUHR4TKB, Empty) 
 
-plate10 <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-10/DR_GPP4417_2903468_Shirole_Plate10/lognorm-DR_GPP4417_2903468_Shirole_Plate10.txt",
+plate10 <- read.table("CRISPRa/Screen Results/Plate-10/DR_GPP4417_2903468_Shirole_Plate10/lognorm-DR_GPP4417_2903468_Shirole_Plate10.txt",
                       sep = "\t", header = T) %>% inner_join(barcode_gene_mapping_setB, 
                                                              by = c("Construct.Barcode"="Barcode.Sequence")) %>%
   select(geneSymbol = Annotated.Gene.Symbol, Construct.IDs, Rep.1.Day.0_TUHR4TKB, Rep.2.Day.0_TUHR4TKB, Empty) 
 
-plate_8 <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-8/DR_GPP4422_2903468_Shirole_Plate08/lognorm-DR_GPP4422_2903468_Shirole_Plate08.txt",
-                      sep = "\t", header = T) %>% select(-Empty) %>% full_join(read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-9/DR_GPP4423_2903468_Shirole_Plate09/lognorm-DR_GPP4423_2903468_Shirole_Plate09.txt",
+plate_8 <- read.table("CRISPRa/Screen Results/Plate-8/DR_GPP4422_2903468_Shirole_Plate08/lognorm-DR_GPP4422_2903468_Shirole_Plate08.txt",
+                      sep = "\t", header = T) %>% select(-Empty) %>% full_join(read.table("CRISPRa/Screen Results/Plate-9/DR_GPP4423_2903468_Shirole_Plate09/lognorm-DR_GPP4423_2903468_Shirole_Plate09.txt",
                                                                                           sep = "\t", header = T)) %>% 
   inner_join(barcode_gene_mapping_setA, by = c("Construct.Barcode"="Barcode.Sequence")) 
 platedmso <- plate_8 %>%
   select(geneSymbol = Annotated.Gene.Symbol, Construct.IDs, Rep.1.DMSO.Day.20_TUHR4TKB, Rep.2.DMSO.Day.20_TUHR4TKB) 
-plate_s <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-11/JD_GPP4418_2903468_Shirole_Plate11/lognorm-JD_GPP4418_2903468_Shirole_Plate11.txt",
-                      sep = "\t", header = T) %>% select(-Empty) %>% full_join(read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-12/JD_GPP4419_2903468_Shirole_Plate12/lognorm-JD_GPP4419_2903468_Shirole_Plate12.txt",
+plate_s <- read.table("CRISPRa/Screen Results/Plate-11/JD_GPP4418_2903468_Shirole_Plate11/lognorm-JD_GPP4418_2903468_Shirole_Plate11.txt",
+                      sep = "\t", header = T) %>% select(-Empty) %>% full_join(read.table("CRISPRa/Screen Results/Plate-12/JD_GPP4419_2903468_Shirole_Plate12/lognorm-JD_GPP4419_2903468_Shirole_Plate12.txt",
                                                                                           sep = "\t", header = T)) %>% inner_join(barcode_gene_mapping_setB, 
                                                                                                                                   by = c("Construct.Barcode"="Barcode.Sequence")) 
 plate11 <- plate_s %>%
@@ -167,30 +167,30 @@ write.csv(res.lfc.PT.DMSO.comb,"Processed_data/TUHR4TKB_PT_vs_DMSO_CRISPRa.csv")
 
 ## data import - OSRC2
 # setA
-plate1 <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-1/lognorm-JD_GPP3205_Shirole_Plate1.txt",
+plate1 <- read.table("CRISPRa/Screen Results/Plate-1/lognorm-JD_GPP3205_Shirole_Plate1.txt",
                      sep = "\t", header = T) %>% inner_join(barcode_gene_mapping_setA, 
                                                             by = c("Construct.Barcode"="Barcode.Sequence")) %>%
   select(geneSymbol = Annotated.Gene.Symbol, Construct.IDs, Rep.1.Day.0, Rep.2.Day.0, Empty)
-plate2 <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-2/lognorm-JD_GPP3206_Shirole_Plate2.txt",
+plate2 <- read.table("CRISPRa/Screen Results/Plate-2/lognorm-JD_GPP3206_Shirole_Plate2.txt",
                      sep = "\t", header = T) %>% inner_join(barcode_gene_mapping_setA, 
                                                             by = c("Construct.Barcode"="Barcode.Sequence")) %>%
   select(geneSymbol = Annotated.Gene.Symbol, Construct.IDs, Rep.1.DMSO.Day.20, Rep.1.PT.Day.20, Empty) 
-plate3 <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-3/lognorm-JD_GPP3207_Shirole_Plate3.txt",
+plate3 <- read.table("CRISPRa/Screen Results/Plate-3/lognorm-JD_GPP3207_Shirole_Plate3.txt",
                      sep = "\t", header = T) %>% inner_join(barcode_gene_mapping_setA, 
                                                             by = c("Construct.Barcode"="Barcode.Sequence")) %>%
   select(geneSymbol = Annotated.Gene.Symbol, Construct.IDs, Rep.2.DMSO.Day.20, Rep.2.PT.Day.20, Empty) 
 
 
 # setB
-plate4 <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-4/lognorm-JD_GPP3454_Shirole_20220510_P4.txt",
+plate4 <- read.table("CRISPRa/Screen Results/Plate-4/lognorm-JD_GPP3454_Shirole_20220510_P4.txt",
                      sep = "\t", header = T) %>% inner_join(barcode_gene_mapping_setB, 
                                                             by = c("Construct.Barcode"="Barcode.Sequence")) %>%
   select(geneSymbol = Annotated.Gene.Symbol, Construct.IDs, Rep.1.Day.0, Rep.2.Day.0, Empty) 
-plate5 <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-5/lognorm-JD_GPP3455_Shirole_20220510_P5.txt",
+plate5 <- read.table("CRISPRa/Screen Results/Plate-5/lognorm-JD_GPP3455_Shirole_20220510_P5.txt",
                      sep = "\t", header = T) %>% inner_join(barcode_gene_mapping_setB, 
                                                             by = c("Construct.Barcode"="Barcode.Sequence")) %>%
   select(geneSymbol = Annotated.Gene.Symbol, Construct.IDs, Rep.1.DMSO.Day.20, Rep.1.PT.Day.20, Empty) 
-plate6 <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-6/lognorm-JD_GPP3456_Shirole_20220510_P6.txt",
+plate6 <- read.table("CRISPRa/Screen Results/Plate-6/lognorm-JD_GPP3456_Shirole_20220510_P6.txt",
                      sep = "\t", header = T) %>% inner_join(barcode_gene_mapping_setB, 
                                                             by = c("Construct.Barcode"="Barcode.Sequence")) %>%
   select(geneSymbol = Annotated.Gene.Symbol, Construct.IDs, Rep.2.DMSO.Day.20, Rep.2.PT.Day.20, Empty) 
@@ -234,10 +234,10 @@ write.csv(res.lfc.PT.day0.comb.OSRC2,"Processed_data/OSRC2_PT_vs_Day0_CRISPRa.cs
 write.csv(res.lfc.PT.DMSO.comb.OSRC2,"Processed_data/OSRC2_PT_vs_DMSO_CRISPRa.csv")
 
 ## data import - OSRC2 mini library
-# /Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-15/lognorm-JD_GPP4898_2903697_Shirole_plate_14.txt
-barcode_mapping_miniset <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-15/CP1904_GRCh38_NCBI_CRISPRa_strict_gene_20230726 (2).chip", 
+# CRISPRa/Screen Results/Plate-15/lognorm-JD_GPP4898_2903697_Shirole_plate_14.txt
+barcode_mapping_miniset <- read.table("CRISPRa/Screen Results/Plate-15/CP1904_GRCh38_NCBI_CRISPRa_strict_gene_20230726 (2).chip", 
                                       sep = "\t", header = T)
-plate15 <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-15/lognorm-JD_GPP4898_2903697_Shirole_plate_14.txt",
+plate15 <- read.table("CRISPRa/Screen Results/Plate-15/lognorm-JD_GPP4898_2903697_Shirole_plate_14.txt",
                      sep = "\t", header = T) %>% inner_join(barcode_mapping_miniset, 
                                                             by = c("Construct.Barcode"="Barcode.Sequence"))
 
@@ -276,10 +276,10 @@ write.csv(res.lfc.PT.day0.miniset.OSRC2,"Processed_data/OSRC2_PT_vs_Day0_CRISPRa
 write.csv(res.lfc.PT.DMSO.miniset.OSRC2,"Processed_data/OSRC2_PT_vs_DMSO_CRISPRa_HIF2a_library.csv")
 
 ## data import - TUHR4TKB mini library
-barcode_mapping_miniset <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-13/CP1904_GRCh38_NCBI_CRISPRa_strict_gene_20230726.chip", 
+barcode_mapping_miniset <- read.table("CRISPRa/Screen Results/Plate-13/CP1904_GRCh38_NCBI_CRISPRa_strict_gene_20230726.chip", 
                                       sep = "\t", header = T)
 
-plate13 <- read.table("/Users/devishi/Dropbox/Nitin_Chipseq/CRISPRa/Screen Results/Plate-13/JD_GPP4420_2903468_Shirole_Plate13/lognorm-JD_GPP4420_2903468_Shirole_Plate13.txt",
+plate13 <- read.table("CRISPRa/Screen Results/Plate-13/JD_GPP4420_2903468_Shirole_Plate13/lognorm-JD_GPP4420_2903468_Shirole_Plate13.txt",
                       sep = "\t", header = T) %>% inner_join(barcode_mapping_miniset, 
                                                              by = c("Construct.Barcode"="Barcode.Sequence")) %>% select(-Gene.ID)
 
