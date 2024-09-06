@@ -7,9 +7,7 @@ Analysis Code for Manuscript "**Failure to Downregulate Cyclin D1 in Kidney Canc
 
 All sequencing data is deposited in GEO under project -
 
-The raw data for running the analysis pipeline can be found in this [Figshare link](-).
-
-The intermediate/processed data for reproducing the Figures can be found in this [Figshare link](-).
+The intermediate/processed data for reproducing the Figures can be found in the Processed_data folder
 
 ## Results and Figures 
 
