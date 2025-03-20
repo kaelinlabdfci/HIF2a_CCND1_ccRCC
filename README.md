@@ -4,7 +4,7 @@ Analysis Code for Manuscript "**Failure to Downregulate Cyclin D1 in Kidney Canc
 
 ## Data
 
-All sequencing data is deposited in GEO under project - GSE277046
+All sequencing data is deposited in GEO under project - GSE277043-46
 
 The intermediate/processed data for reproducing the Figures can be found in the Processed_data folder
 
