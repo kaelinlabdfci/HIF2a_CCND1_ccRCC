@@ -1,11 +1,10 @@
 # Failure to Downregulate Cyclin D1 in Kidney Cancer Confers Resistance to HIF2a Inhibition
-[![DOI](https://zenodo.org/badge/-)](https://zenodo.org/badge/latestdoi/-)
 
 Analysis Code for Manuscript "**Failure to Downregulate Cyclin D1 in Kidney Cancer Confers Resistance to HIF2a Inhibition**".
 
 ## Data
 
-All sequencing data is deposited in GEO under project -
+All sequencing data is deposited in GEO under project - GSE277046
 
 The intermediate/processed data for reproducing the Figures can be found in the Processed_data folder
 
